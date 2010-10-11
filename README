@@ -1,0 +1,39 @@
+ruby-cucumber is a vim plugin for cucumber files. Basically it has 3 main functionalities 
+
+(1). Jump to a step defintion from a feature file
+(2). Auto completion (Omni) when typing a step
+(3). highlight undefined steps on save.
+
+you need +ruby support for (1) and (2) and signs supports for (3)
+
+By default:
+
+(1). For jumping, There is only one sample map in .vim/ftplugin/cucumber.vim
+<C-W><C-[> to open the step defintion in new tab
+define your keymap as you will using VIMCucumber.jump_step function. for example:
+
+Ctrl+s for split window would be defined as:
+
+nmap <silent><buffer> <C-s>  :ruby VIMCucumber.jump_step('split')<CR>
+
+
+(2). Auto completion use Omnifunc so the default is, in insert mode,
+
+<C-x><C-o> will display all the step matched. Note, the match is case insensitive and order insensitive
+so the similar text will bring up the same steps
+
+we will
+will we
+We will
+Will wE
+
+(3). highlight undefined steps on save. This is doned by define a sign
+and when the buffer is first read and any save after that, a function is called
+to check all the steps on that file. Very basic implementation, it doesnt check if the line
+doesnt start with Given, Then, And, When, or But. Also at the moment, whenever a .rb file is save
+a funtion is called to refresh the cached steps definitions. I dont see much impact of this funtionality
+but if it does have, I might consider more efficient methods later.
+
+As i used system grep to fetch all the step defintion and parse the output, this might not work on Window.
+Any patch is welcomed.
+
