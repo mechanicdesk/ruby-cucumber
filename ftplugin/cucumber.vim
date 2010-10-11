@@ -7,10 +7,11 @@ if (exists("b:did_ftplugin"))
 endif
 let b:did_ftplugin = 1
 hi Error guifg=Red gui=italic guibg=Black
-sign define fixme text=!! linehl=Error
+silent! sign define fixme text=!! linehl=Error
 
 setlocal formatoptions-=t formatoptions+=croql
 setlocal comments=:# commentstring=#\ %s
+
 setlocal omnifunc=CucumberComplete
 autocmd BufWritePost,BufEnter <buffer> ruby VIMCucumber.check_steps_on_file
 autocmd BufWritePost *.rb ruby VIMCucumber.refresh
@@ -38,6 +39,7 @@ function! CucumberComplete(findstart, base) abort
   let steps       = split(output, "\n")
   return steps
 endfunction
+
 
 ruby << EOF
   # require Ruby files

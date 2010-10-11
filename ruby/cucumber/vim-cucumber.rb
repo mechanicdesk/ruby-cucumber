@@ -12,16 +12,16 @@ class VIMCucumber
     current_buffer = VIM::Buffer.current
 
     unless Cucumber.is_a_step(current_buffer[line_number])
-      VIM::command(":sign unplace #{line_number}")
+      VIM::command(":silent! sign unplace #{line_number}")
       return;
     end
 
     string = self.normalise_step(current_buffer[line_number])
 
     if Cucumber.defined? string 
-      VIM::command(":sign unplace #{line_number}")
+      VIM::command(":silent! sign unplace #{line_number}")
     else
-      VIM::command(":sign place #{line_number} line=#{line_number} name=fixme file=#{current_buffer.name}")
+      VIM::command(":silent! sign place #{line_number} line=#{line_number} name=fixme file=#{current_buffer.name}")
     end
   end
 
