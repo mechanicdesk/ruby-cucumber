@@ -3,7 +3,7 @@
 class Cucumber
   @@steps = []
 
-  def self.fetch_steps dir_path='features/step_defintions'
+  def self.fetch_steps dir_path='features/step_definitions'
 
     @@steps = []
 
