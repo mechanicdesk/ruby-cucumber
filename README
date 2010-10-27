@@ -1,10 +1,13 @@
-ruby-cucumber is a vim plugin for cucumber files. Basically it has 3 main functionalities 
+NOTE: This is known to works only on Linux and MacOS environments
+
+ruby-cucumber is a vim plugin for cucumber files. Basically it has 3 main functionalities
 
 (1). Jump to a step defintion from a feature file
 (2). Auto completion (Omni) when typing a step
 (3). highlight undefined steps on save.
 
 you need +ruby support for (1) and (2) and +signs support for (3)
+you need grep from command line
 
 By default:
 
