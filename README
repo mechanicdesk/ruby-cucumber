@@ -13,7 +13,7 @@ By default:
 
 (1). For jumping, There is only one sample map in .vim/ftplugin/cucumber.vim
 
-<C-W><C-[> to open the step defintion in new tab
+<C-W><C-]> to open the step defintion in new tab
 
 define your keymap as you will using VIMCucumber.jump_step function. for example:
 
